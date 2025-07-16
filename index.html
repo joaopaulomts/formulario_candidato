@@ -1,101 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      name="description"
-      content="Currículo do Candidato - Teste de HTML e CSS"
-    />
-    <meta name="keywords" content="currículo, candidato, teste, HTML, CSS" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Formulário Currículo</title>
-  </head>
-  <body>
-    <!-- Main -->
-    <form>
-    <main>
-      <div>
-        <h1>Formulário para o Candidato</h1>
-        <p>Preencha suas informações abaixo para se candidatar à vaga.</p>
-        <h2>Informações Pessoais</h2>
-        <label for="email">Nome completo: </label>
-        <input type="text" name="name" id="name" value="JP" required />
-      </div>
-      <div>
-        <label for="email">Endereço de E-mail: </label>
-        <input type="email" name="email" id="email" value="email@email" required />
-      </div>
-      <h2>Formação Acadêmica</h2>
-      <div>
-        <label for="text">Qual a sua graduação?</label>
-        <input type="text" name="curso" id="curso" value="eng" required />
-      </div>
-      <div>
-        <label for="text">Qual a instituição de ensino?</label>
-        <input type="text" name="instituicao" id="instituicao" value="satc" required />
-      </div>
-      <h2>Destaque das Habilidades</h2>
-    <div>
-      <p>Selecione suas principais habilidades técnicas (hard skill):</p>
-      <div>
-        <input type="checkbox" id="html" names="html" chacked>
-      </input>
-      <label for="scales">HTML5</label>
-      </div>
-    <div>
-        <input type="checkbox" id="css" names="css" chacked>
-      </input>
-      <label for="scales">CSS3</label>
-      </div>
-  <div>
-        <input type="checkbox" id="js" names="js" chacked>
-      </input>
-      <label for="scales">Javascript</label>
-      </div>
-<div>
-        <input type="checkbox" id="ts" names="ts" chacked>
-      </input>
-      <label for="scales">Typesript</label>
-      </div>
-<div>
-        <input type="checkbox" id="python" names="python" chacked>
-      </input>
-      <label for="scales">Python</label>
-      </div>
-<div>
-        <input type="checkbox" id="golang" names="golang" chacked>
-      </input>
-      <label for="scales">Golang</label>
-      </div>
 
-<div>
-  <p>
-  Qual dessas softskills é a mais forte em você?
-</p>
-    <select name="softskill" required="required">
-        <option value="">Escolha uma opção</option>
-        <option value="comunicacao">Comunicação</option>
-        <option value="inteligencia">Inteligência Emocional</option>
-        <option value="pontualidade">Pontualidade</option>
-        <option value="curiosidade">Curiosidade</option>
-    </select>
-</div>
-</div>
-      <!-- Wireframe -->
-      <section>
-        <h2>Adicione uma imagem sua!</h2>
-        <label for="avatar">Escolha um arquivo:</label>
-        <input required type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-      </section>
-<div>
-  <input type="submit" value="Enviar Currículo" />
-</div>
-</form>
-      <footer>
-        <p>© 2025 - Currículo do Candidato Corporation</p>
-      </footer>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Currículo do Candidato - Teste de HTML e CSS" />
+  <meta name="keywords" content="currículo, candidato, teste, HTML, CSS" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Formulário Currículo</title>
+</head>
+
+<body>
+  <!-- Main -->
+  <form action="#" method="post" enctype="multipart/form-data">
+    <main>
+      <div class="form-container">
+          <h1>Formulário para o Candidato</h1>
+          <p>Preencha suas informações abaixo para se candidatar à vaga.</p>
+
+          <legend>Informações Pessoais</legend>
+          <div class="form-grid">
+            <div>
+              <label for="name">Nome completo: </label>
+              <input type="text" name="name" id="name" placeholder="Pedro Per" required />
+            </div>
+            <div>
+               <label for="email">Endereço de E-mail: </label>
+                <input type="email" name="email" id="email" placeholder="email@email.com" required />
+            </div>
+          </div>
+        <legend>Formação Acadêmica</legend>
+        <div class="form-grid">
+          <div>
+            <label for="text">Qual a sua graduação?</label>
+            <input type="text" name="curso" id="curso" placeholder="Ex: Engenharia da Computação" required />
+          </div>
+          <div>
+            <label for="text">Qual a instituição de ensino?</label>
+            <input type="text" name="instituicao" id="instituicao" value="satc" required />
+          </div>
+        </div>
+        <legend>Destaque das Habilidades</legend>
+        <div>
+          <label>Selecione suas principais habilidades técnicas (hard skill):</label>
+          <div class="skills-grid">
+            <label class="checkbox-label">
+              <input type="checkbox" name="habilidades" value="HTML5">
+              <span>HTML5</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="habilidades" value="CSS3">
+              <span>CSS3</span>
+            </label>
+            <label class="checkbox-label">
+               <input type="checkbox" name="habilidades" value="Javascript">
+               <span>Javascript</span>
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="habilidades" value="Typescript">
+                 <span>Typescript</span>
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="habilidades" value="Python">
+                <span>Python</span>
+            </label>
+            <label class="checkbox-label">
+               <input type="checkbox" name="habilidades" value="Golang">
+                <span>Golang</span>
+            </label>
+          </div>
+          <div>
+            <label for="softskill">Qual é a sua softskill mais forte em você?</label>
+            <select name="softskill" id="softskill" required>
+              <option value="">Escolha uma opção</option>
+              <option value="comunicacao">Comunicação</option>
+              <option value="inteligencia">Inteligência Emocional</option>
+              <option value="pontualidade">Pontualidade</option>
+              <option value="curiosidade">Curiosidade</option>
+            </select>
+          </div>
+        </div>
+        <!-- Wireframe -->
+        <section>
+          <legend>Adicione uma imagem sua!</legend>
+          <div>
+            <label for="avatar">Foto de Perfil ou Currículo (PDF)</label>
+            <input required type="file" id="arquivo" name="arquivo"/>
+          </div>
+          </section>
+        <div>
+          <button type="submit" class="submit-btn">Enviar Currículo</button>
+        </div>
+  </form>
+  <footer>
+    <p>© 2025 - Currículo do Candidato Corporation</p>
+  </footer>
+  </div>
+  </main>
+</body>
 </html>
