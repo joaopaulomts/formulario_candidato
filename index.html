@@ -9,6 +9,9 @@
   <meta name="keywords" content="currículo, candidato, teste, HTML, CSS" />
   <link rel="stylesheet" href="styles.css" />
   <title>Formulário Currículo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,14 +19,16 @@
   <form action="#" method="post" enctype="multipart/form-data">
     <main>
       <div class="form-container">
+      <div class="form-header">
           <h1>Formulário para o Candidato</h1>
           <p>Preencha suas informações abaixo para se candidatar à vaga.</p>
+        </div>
 
           <legend>Informações Pessoais</legend>
           <div class="form-grid">
             <div>
               <label for="name">Nome completo: </label>
-              <input type="text" name="name" id="name" placeholder="Pedro Per" required />
+              <input type="text" name="name" id="name" placeholder="Pedro Pereira" required />
             </div>
             <div>
                <label for="email">Endereço de E-mail: </label>
@@ -37,8 +42,8 @@
             <input type="text" name="curso" id="curso" placeholder="Ex: Engenharia da Computação" required />
           </div>
           <div>
-            <label for="text">Qual a instituição de ensino?</label>
-            <input type="text" name="instituicao" id="instituicao" value="satc" required />
+            <label for="instiuicao">Qual a instituição de ensino?</label>
+            <input type="text" name="instituicao" id="instituicao" placeholder="unicamp" required />
           </div>
         </div>
         <legend>Destaque das Habilidades</legend>
@@ -72,12 +77,12 @@
           </div>
           <div>
             <label for="softskill">Qual é a sua softskill mais forte em você?</label>
-            <select name="softskill" id="softskill" required>
-              <option value="">Escolha uma opção</option>
-              <option value="comunicacao">Comunicação</option>
-              <option value="inteligencia">Inteligência Emocional</option>
-              <option value="pontualidade">Pontualidade</option>
-              <option value="curiosidade">Curiosidade</option>
+            <select id="softskill" name="softskill">
+              <option>Escolha uma opção</option>
+              <option>Comunicação</option>
+              <option>Inteligência Emocional</option>
+              <option>Pontualidade</option>
+              <option>Curiosidade</option>
             </select>
           </div>
         </div>
@@ -85,7 +90,7 @@
         <section>
           <legend>Adicione uma imagem sua!</legend>
           <div>
-            <label for="avatar">Foto de Perfil ou Currículo (PDF)</label>
+            <label for="arquivo">Foto de Perfil ou Currículo (PDF)</label>
             <input required type="file" id="arquivo" name="arquivo"/>
           </div>
           </section>
@@ -96,6 +101,7 @@
   <footer>
     <p>© 2025 - Currículo do Candidato Corporation</p>
   </footer>
+  </div>
   </div>
   </main>
 </body>
