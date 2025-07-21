@@ -4,14 +4,13 @@
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 </div>
 
 ## 🎯 Sobre o Projeto
 
-Um formulário de candidato moderno e responsivo desenvolvido com HTML, CSS e JavaScript, utilizando Tailwind CSS para um design elegante e profissional. O formulário permite que candidatos enviem suas informações pessoais, formação acadêmica, habilidades técnicas e soft skills de forma intuitiva e organizada.
+Um formulário de candidato moderno e responsivo desenvolvido com HTML e CSS, utilizando Tailwind CSS para um design elegante e profissional. O formulário permite que candidatos enviem suas informações pessoais, formação acadêmica, habilidades técnicas e soft skills de forma intuitiva e organizada.
 
 ## ✨ Funcionalidades
 
@@ -21,14 +20,13 @@ Um formulário de candidato moderno e responsivo desenvolvido com HTML, CSS e Ja
 - 📱 **Mobile-First**: Otimizado para dispositivos móveis
 - 🎨 **Animações Suaves**: Transições e efeitos visuais elegantes
 - 📤 **Upload de Arquivos**: Suporte para envio de foto de perfil e currículo em PDF
-- ✅ **Validação Visual**: Feedback visual para melhor experiência do usuário
+- ✅ **Design Limpo**: Interface moderna sem dependências de JavaScript
 
 ## 🛠️ Tecnologias Utilizadas
 
 - **HTML5** - Estrutura semântica e acessível
 - **CSS3** - Estilização avançada e responsiva
 - **Tailwind CSS** - Framework CSS utilitário para design rápido
-- **JavaScript** - Interatividade e validações
 - **Google Fonts (Inter)** - Tipografia moderna e legível
 
 ## 🚀 Como Usar
@@ -43,7 +41,7 @@ Um formulário de candidato moderno e responsivo desenvolvido com HTML, CSS e Ja
 1. **Clone o repositório**
 
    ```bash
-   git clone https://github.com/seu-usuario/formulario_candidato.git
+   git clone https://github.com/seu-usuario/formulario_candidato_html_tailwind.git
    cd formulario_candidato
    ```
 
@@ -100,8 +98,9 @@ formulario_candidato/
 - **Responsividade**: Grid system adaptativo
 - **Acessibilidade**: Labels semânticos e estrutura HTML5
 - **Performance**: Carregamento otimizado com CDN
-- **UX/UI**: Design moderno com feedback visual
+- **UX/UI**: Design moderno com transições CSS
 - **Cross-browser**: Compatível com todos os navegadores modernos
+- **Vanilla**: Apenas HTML e CSS puro, sem dependências JavaScript
 
 ## 🔧 Personalização
 
@@ -111,15 +110,7 @@ O projeto é facilmente personalizável:
 - **Fontes**: Altere a fonte do Google Fonts
 - **Campos**: Adicione ou remova campos conforme necessário
 - **Estilo**: Personalize as classes do Tailwind CSS
-
-## 📱 Screenshots
-
-<div align="center">
-
-![Formulário Desktop](https://via.placeholder.com/800x600/2563eb/ffffff?text=Desktop+View)
-![Formulário Mobile](https://via.placeholder.com/400x600/3b82f6/ffffff?text=Mobile+View)
-
-</div>
+- **Simplicidade**: Projeto vanilla que pode ser facilmente modificado
 
 ## 🙏 Agradecimentos
 
