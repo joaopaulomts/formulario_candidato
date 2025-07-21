@@ -42,7 +42,7 @@ Um formulário de candidato moderno e responsivo desenvolvido com HTML e CSS, ut
 
    ```bash
    git clone https://github.com/seu-usuario/formulario_candidato_html_tailwind.git
-   cd formulario_candidato
+   cd formulario_candidato_html_tailwind
    ```
 
 2. **Abra o arquivo**
