@@ -44,7 +44,7 @@ export function validateField(fieldId, value) {
       break;
     case "email":
       validation = validateRequired(value, "Email");
-      if (validation.isValid && !validateEmail(validateEmail)) {
+      if (validation.isValid && !validateEmail(value)) {
         validation = { isValid: false, message: "Email inválido" };
       }
       break;
