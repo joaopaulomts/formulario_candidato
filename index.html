@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulário de Candidato</title>
+    <title>Formulário de Candidato Interativo</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -30,6 +30,46 @@
           --tw-ring-color: #2563eb; /* Cor blue-600 */
           box-shadow: 0 0 0 2px var(--tw-ring-color);
         }
+
+        .field-valid {
+          border-color: #10b981 !important;
+          box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+        }
+
+        .field-invalid {
+          border-color: #ef4444 !important;
+          box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+        }
+
+        .fade-in {
+          animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .slide-up {
+          animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
       }
     </style>
 
@@ -45,8 +85,9 @@
   >
     <div
       id="form-wrapper"
-      class="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8 space-y-8"
+      class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8 space-y-8"
     >
+      <!-- Header com Progress Bar -->
       <div class="text-center">
         <h1 class="text-3xl font-bold text-gray-800">
           Formulário para o Candidato
@@ -54,125 +95,208 @@
         <p class="text-gray-500 mt-2">
           Preencha suas informações abaixo para se candidatar à vaga.
         </p>
-      </div>
 
-      <form id="candidate-form" class="space-y-6">
-        <fieldset class="space-y-4">
-          <legend
-            class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2 w-full"
-          >
-            Informações Pessoais
-          </legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            <div>
-              <label
-                for="nome"
-                class="block text-sm font-medium text-gray-600 mb-1"
-                >Nome Completo</label
-              >
-              <input
-                type="text"
-                name="nome"
-                id="nome"
-                placeholder="Ex: João da Silva"
-                class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
-                required
-              />
-            </div>
-            <div>
-              <label
-                for="email"
-                class="block text-sm font-medium text-gray-600 mb-1"
-                >Endereço de E-mail</label
-              >
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Ex: joao.silva@email.com"
-                class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
-                required
-              />
-            </div>
+        <!-- Progress Bar -->
+        <div class="mt-6">
+          <div class="flex justify-between text-sm text-gray-600 mb-2">
+            <span>Progresso</span>
+            <span id="progress-text">0%</span>
           </div>
-        </fieldset>
-
-        <fieldset class="space-y-4">
-          <legend
-            class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2 w-full"
-          >
-            Formação Acadêmica
-          </legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            <div>
-              <label
-                for="graduacao"
-                class="block text-sm font-medium text-gray-600 mb-1"
-                >Qual sua graduação?</label
-              >
-              <input
-                type="text"
-                name="graduacao"
-                id="graduacao"
-                placeholder="Ex: Engenharia de Software"
-                class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
-              />
-            </div>
-            <div>
-              <label
-                for="instituicao"
-                class="block text-sm font-medium text-gray-600 mb-1"
-                >Qual a instituição de ensino?</label
-              >
-              <input
-                type="text"
-                name="instituicao"
-                id="instituicao"
-                placeholder="Ex: Universidade Federal"
-                class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
-              />
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="space-y-4">
-          <legend
-            class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2 w-full"
-          >
-            Destaque das Habilidades
-          </legend>
-          <div class="pt-4 space-y-3">
-            <p class="text-sm font-medium text-gray-600">
-              Selecione suas principais habilidades técnicas (hard skills):
-            </p>
+          <div class="w-full bg-gray-200 rounded-full h-2">
             <div
-              id="hard-skills-container"
-              class="grid grid-cols-2 sm:grid-cols-3 gap-4"
+              id="progress-bar"
+              class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+              style="width: 0%"
             ></div>
           </div>
-          <div class="pt-4">
-            <label
-              for="soft-skill-select"
-              class="block text-sm font-medium text-gray-600 mb-1"
-              >Qual dessas softskills é a mais forte em você?</label
-            >
-            <select
-              id="soft-skill-select"
-              name="softskill"
-              class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
-            ></select>
-          </div>
-        </fieldset>
-
-        <div>
-          <button
-            type="submit"
-            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200"
-          >
-            Enviar Currículo
-          </button>
         </div>
-      </form>
+      </div>
+
+      <!-- Container Principal -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Formulário Principal -->
+        <div class="lg:col-span-2">
+          <form id="candidate-form" class="space-y-6">
+            <fieldset class="space-y-4">
+              <legend
+                class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2 w-full"
+              >
+                Informações Pessoais
+              </legend>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div>
+                  <label
+                    for="nome"
+                    class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nome Completo</label
+                  >
+                  <input
+                    type="text"
+                    name="nome"
+                    id="nome"
+                    placeholder="Ex: João da Silva"
+                    class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
+                    required
+                  />
+                  <div class="flex justify-between items-center mt-1">
+                    <span
+                      id="nome-error"
+                      class="text-red-500 text-xs hidden"
+                    ></span>
+                    <span id="nome-counter" class="text-gray-400 text-xs"
+                      >0/50</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-600 mb-1"
+                    >Endereço de E-mail</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Ex: joao.silva@email.com"
+                    class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
+                    required
+                  />
+                  <div class="flex justify-between items-center mt-1">
+                    <span
+                      id="email-error"
+                      class="text-red-500 text-xs hidden"
+                    ></span>
+                    <span
+                      id="email-status"
+                      class="text-gray-400 text-xs"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="space-y-4">
+              <legend
+                class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2 w-full"
+              >
+                Formação Acadêmica
+              </legend>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div>
+                  <label
+                    for="graduacao"
+                    class="block text-sm font-medium text-gray-600 mb-1"
+                    >Qual sua graduação?</label
+                  >
+                  <input
+                    type="text"
+                    name="graduacao"
+                    id="graduacao"
+                    placeholder="Ex: Engenharia de Software"
+                    class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
+                  />
+                  <div class="flex justify-between items-center mt-1">
+                    <span
+                      id="graduacao-error"
+                      class="text-red-500 text-xs hidden"
+                    ></span>
+                    <span id="graduacao-counter" class="text-gray-400 text-xs"
+                      >0/100</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <label
+                    for="instituicao"
+                    class="block text-sm font-medium text-gray-600 mb-1"
+                    >Qual a instituição de ensino?</label
+                  >
+                  <input
+                    type="text"
+                    name="instituicao"
+                    id="instituicao"
+                    placeholder="Ex: Universidade Federal"
+                    class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
+                  />
+                  <div class="flex justify-between items-center mt-1">
+                    <span
+                      id="instituicao-error"
+                      class="text-red-500 text-xs hidden"
+                    ></span>
+                    <span id="instituicao-counter" class="text-gray-400 text-xs"
+                      >0/100</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="space-y-4">
+              <legend
+                class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2 w-full"
+              >
+                Destaque das Habilidades
+              </legend>
+              <div class="pt-4 space-y-3">
+                <p class="text-sm font-medium text-gray-600">
+                  Selecione suas principais habilidades técnicas (hard skills):
+                </p>
+                <div
+                  id="hard-skills-container"
+                  class="grid grid-cols-2 sm:grid-cols-3 gap-4"
+                ></div>
+                <div class="mt-3">
+                  <span id="skills-counter" class="text-sm text-gray-500"
+                    >0 habilidades selecionadas</span
+                  >
+                </div>
+              </div>
+              <div class="pt-4">
+                <label
+                  for="soft-skill-select"
+                  class="block text-sm font-medium text-gray-600 mb-1"
+                  >Qual dessas softskills é a mais forte em você?</label
+                >
+                <select
+                  id="soft-skill-select"
+                  name="softskill"
+                  class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 transition duration-200"
+                ></select>
+              </div>
+            </fieldset>
+
+            <div class="flex gap-4">
+              <button
+                type="button"
+                id="save-btn"
+                class="flex-1 py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200"
+              >
+                💾 Salvar Rascunho
+              </button>
+              <button
+                type="submit"
+                id="submit-btn"
+                class="flex-1 py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                📤 Enviar Currículo
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Preview Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="bg-gray-50 rounded-lg p-6 sticky top-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 Preview</h3>
+            <div id="preview-content" class="space-y-4 text-sm">
+              <div class="text-gray-500 italic">
+                Preencha o formulário para ver o preview...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <footer class="text-center">
         <p class="text-sm text-gray-400">
@@ -181,96 +305,6 @@
       </footer>
     </div>
 
-    <script>
-      // Garante que o script rode apenas quando o HTML estiver pronto
-      document.addEventListener("DOMContentLoaded", () => {
-        // --- DADOS ---
-        const hardSkills = [
-          "HTML5",
-          "CSS3",
-          "Javascript",
-          "Typescript",
-          "Python",
-          "Golang",
-        ];
-        const softSkills = [
-          "Comunicação",
-          "Trabalho em Equipe",
-          "Resolução de Problemas",
-          "Liderança",
-          "Adaptabilidade",
-        ];
-
-        // --- SELETORES DO DOM ---
-        const hardSkillsContainer = document.getElementById(
-          "hard-skills-container"
-        );
-        const softSkillSelect = document.getElementById("soft-skill-select");
-        const form = document.getElementById("candidate-form");
-        const formWrapper = document.getElementById("form-wrapper");
-
-        // --- FUNÇÕES ---
-
-        // Função para CRIAR e popular os checkboxes de hard skills
-        function populateHardSkills(skills) {
-          skills.forEach((skill) => {
-            // <<-- USO DE LOOP
-            const label = document.createElement("label");
-            label.className =
-              "flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer";
-            label.innerHTML = `
-                <input type="checkbox" name="habilidades" value="${skill.toLowerCase()}" class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
-                <span class="text-gray-700">${skill}</span>
-            `;
-            hardSkillsContainer.appendChild(label); // <<-- ATUALIZAÇÃO DO DOM
-          });
-        }
-
-        // Função para CRIAR e popular as opções de soft skills
-        function populateSoftSkills(skills) {
-          softSkillSelect.innerHTML =
-            "<option selected disabled>Escolha uma opção</option>";
-          skills.forEach((skill) => {
-            // <<-- USO DE LOOP
-            const option = document.createElement("option");
-            option.value = skill.toLowerCase();
-            option.textContent = skill;
-            softSkillSelect.appendChild(option); // <<-- ATUALIZAÇÃO DO DOM
-          });
-        }
-
-        // Função para lidar com o envio do formulário
-        function handleFormSubmit(event) {
-          event.preventDefault(); // Previne o recarregamento da página
-
-          const nomeInput = document.getElementById("nome");
-          const nome = nomeInput.value; // <<-- LEITURA DO DOM
-
-          if (nome.trim() !== "") {
-            // <<-- USO DE CONDICIONAL
-
-            // DELETA o formulário da tela
-            form.remove();
-
-            // CRIA um novo elemento para a mensagem de sucesso
-            const successMessage = document.createElement("div");
-            successMessage.className = "text-center p-8";
-            successMessage.innerHTML = `<h2 class="text-2xl font-bold text-green-600 mb-4">Obrigado, ${nome}!</h2><p class="text-gray-600">Seu currículo foi enviado com sucesso. Entraremos em contato em breve.</p>`;
-
-            // ATUALIZA o DOM, inserindo a mensagem de sucesso antes do rodapé
-            const footer = formWrapper.querySelector("footer");
-            formWrapper.insertBefore(successMessage, footer);
-          } else {
-            alert('Por favor, preencha o campo "Nome Completo".');
-            nomeInput.focus();
-          }
-        }
-
-        // --- INICIALIZAÇÃO ---
-        populateHardSkills(hardSkills);
-        populateSoftSkills(softSkills);
-        form.addEventListener("submit", handleFormSubmit);
-      });
-    </script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
