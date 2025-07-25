@@ -163,13 +163,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- INICIALIZAÇÃO ---
   populateHardSkills(hardSkills, formData, updateFunctions);
   populateSoftSkills(softSkills, formData, updateFunctions);
   setupEventListeners();
-  loadFromLocalStorage(); // Carrega os dados salvos ao iniciar
+  loadFromLocalStorage();
 
-  // Atualizar contadores iniciais
   updateCounter("nome", 50);
   updateCounter("graduacao", 100);
   updateCounter("instituicao", 100);
